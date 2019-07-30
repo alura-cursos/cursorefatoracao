@@ -2,20 +2,29 @@
 
 namespace Alura\SubstituirArrayPorObjeto;
 
+require 'Usuario.php';
+
 use PDO;
 
 $dadosUsuario = ['Giovanni', 'Tempobono', 'Alura', 'Instrutor'];
 
+$usuario = new Usuario(
+    $dadosUsuario[0],
+    $dadosUsuario[1],
+    $dadosUsuario[2],
+    $dadosUsuario[3]
+);
+
 $pdo = new PDO('sqlite:bancodedados.db');
 
 $inserir_usuario = $pdo->prepare(
-    'INSERT INTO usuarios (nome, sobrenome, empresa, cargo) VALUES (?,?,?,?)'
+    'INSERT INTO usuarios (nome, sobrenome, empresa, cargo) VALUES (:nome,:sobrenome,:empresa,:cargo)'
 );
 
-$inserir_usuario->bindParam(1, $dadosUsuario[0]);
-$inserir_usuario->bindParam(2, $dadosUsuario[1]);
-$inserir_usuario->bindParam(3, $dadosUsuario[2]);
-$inserir_usuario->bindParam(4, $dadosUsuario[3]);
+$inserir_usuario->bindValue(':nome', $usuario->getNome());
+$inserir_usuario->bindValue(':sobrenome', $usuario->getSobrenome());
+$inserir_usuario->bindValue(':empresa', $usuario->getEmpresa());
+$inserir_usuario->bindValue(':cargo', $usuario->getCargo());
 
 $inserir_usuario->execute();
 

@@ -7,15 +7,15 @@ namespace Alura\EncapsularCampo;
 require 'Empresa.php';
 require 'Funcionario.php';
 
-$alura = new Empresa();
-$funcionario = new Funcionario('Giovanni', 100);
+$empresa = new Empresa();
+$funcionario = new Funcionario('Giovanni', 1000);
 
-$alura->adicionarFuncionario($funcionario);
+$empresa->adicionarFuncionario($funcionario);
 
-echo $funcionario->salario;
+echo $funcionario->getSalario();
+echo "<br>";
 
-$funcionario->salario = 500;
+$empresa->promoveFuncionario($funcionario, 50);
 
-$alura->promoveFuncionario($funcionario, 50);
-
-echo $funcionario->salario;
+echo $funcionario->getSalario();
+echo "<br>";
