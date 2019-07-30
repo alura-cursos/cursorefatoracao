@@ -1,29 +1,35 @@
 <?php declare(strict_types=1);
 
-function recebeDesconto(int $descontoInicial, bool $ehPremium, int $quantidade, int $anosCliente): void
-{
+function recebeDesconto(
+    int $descontoInicial,
+    bool $ehPremium,
+    int $quantidade,
+    int $anosCliente
+): void {
+    $desconto = $descontoInicial;
 
-    if ($descontoInicial > 200) {
+    if ($desconto > 200) {
         return;
     }
 
     if ($ehPremium === true) {
-        $descontoInicial = $descontoInicial * 1.1;
+        $desconto = $desconto * 1.1;
     }
 
     if ($quantidade > 50) {
-        $descontoInicial = $descontoInicial * 1.2;
+        $desconto = $desconto * 1.2;
     }
 
     if ($anosCliente > 3) {
-        $descontoInicial = $descontoInicial * 1.1;
+        $desconto = $desconto * 1.1;
     }
 
     echo <<<EOF
 --------------------
-Desconto: $descontoInicial
+Desconto Inicial: $descontoInicial
+Desconto: $desconto
 --------------------
 EOF;
 }
 
-recebeDesconto(50, true, 100, 100);
+recebeDesconto(50, true, 100, 5);
