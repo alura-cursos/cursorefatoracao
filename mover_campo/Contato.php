@@ -6,16 +6,22 @@ class Contato
 {
     private $endereco;
     private $telefone;
+    private $email;
 
-    public function __construct(string $endereco, string $telefone)
-    {
+    public function __construct(
+        string $endereco,
+        string $telefone,
+        string $email
+    ) {
         $this->endereco = $endereco;
         $this->telefone = $telefone;
+        $this->email = $email;
     }
 
     public function __toString()
     {
-        return "<p>Endereço: $this->endereco</p>
+        return "<p>Email: $this->email</p>
+                <p>Endereço: $this->endereco</p>
                 <p>Telefone: $this->telefone</p>";
     }
 }

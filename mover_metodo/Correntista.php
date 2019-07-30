@@ -22,4 +22,9 @@ class Correntista
     {
         return $this->sobrenome;
     }
+
+    public function getNomeCompleto(): string
+    {
+        return $this->nome . " " . $this->sobrenome;
+    }
 }

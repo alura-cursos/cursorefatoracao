@@ -13,8 +13,6 @@ class ContaCorrente
 
     public function exibeNomeCorrentista(): string
     {
-        $nome = $this->correntista->getNome();
-        $sobrenome = $this->correntista->getSobrenome();
-        return $nome . " " . $sobrenome;
+        return $this->correntista->getNomeCompleto();
     }
 }
