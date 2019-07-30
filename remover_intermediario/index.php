@@ -3,9 +3,8 @@
 namespace Alura\RemoverIntermediario;
 
 require 'Funcionario.php';
-require 'Empregado.php';
 
-$maria = new Empregado(new Funcionario('Giovanni', 'Instrutor'));
+$funcionario = new Funcionario('Giovanni', 'Instrutor');
 
-echo "<p>{$maria->getNome()}</p>";
-echo "<p>{$maria->getCargo()}</p>";
+echo "<p>{$funcionario->getNome()}</p>";
+echo "<p>{$funcionario->getCargo()}</p>";
